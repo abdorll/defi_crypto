@@ -10,9 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:defi_crypto/routes/app_routes.dart';
 import 'package:defi_crypto/utils/color.dart';
 import 'package:defi_crypto/utils/constants.dart';
-import 'package:defi_crypto/views/splash_screen.dart';
-import 'package:defi_crypto/views/web_view_page.dart';
-
+import 'package:defi_crypto/views/splash_screen.dart'; 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterDownloader.initialize(debug: true, ignoreSsl: true);
@@ -36,12 +34,11 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     final botToastBuilder = BotToastInit();
     return MaterialApp(
-      title: 'defi_crypto',
+      title: 'DefiCrypto',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -51,32 +48,11 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return botToastBuilder(context, child);
       },
-      initialRoute: SplashScreen.splashScreen,
-      // home: Scaffold(
-      //   body: Container(
-      //     child: Center(
-      //       child: Text("data"),
-      //     ),
-      //   ),
-      // ),
+      initialRoute: SplashScreen.splashScreen, 
       onGenerateRoute: AppRoutes.generateRoute,
       navigatorObservers: [
         BotToastNavigatorObserver(),
       ],
     );
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

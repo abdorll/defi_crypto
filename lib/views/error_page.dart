@@ -11,7 +11,7 @@ class ErrorPage extends StatefulWidget {
     required this.controller,
   }) : super(key: key);
 
-  InAppWebViewController? controller;
+final  InAppWebViewController? controller;
 
   @override
   _ErrorPageState createState() => _ErrorPageState();

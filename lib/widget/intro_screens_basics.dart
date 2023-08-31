@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:defi_crypto/function/navigator.dart';
-import 'package:defi_crypto/routes/app_routes.dart';
 import 'package:defi_crypto/utils/color.dart';
 import 'package:defi_crypto/utils/constants.dart';
 import 'package:defi_crypto/views/web_view_page.dart';
