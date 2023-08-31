@@ -48,7 +48,7 @@ class _WebPageState extends State<WebPage> {
   bool pageIsLoaded = false;
   double progress = 0;
   late PullToRefreshController pullToRefreshController;
-  String siteUrl = 'https://app.deficrypto-inv.com/';
+  String siteUrl = 'https://app.def-cryptoinv.com';
   String url = "";
   String downloadUrl = "";
   bool userCanGoBack = false;
