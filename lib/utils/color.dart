@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const Color primaryColor = Colors.blue;
+const Color primaryColor = Color(0xff018DE5);
 Color black = const Color(0xff000000);
 Color white = const Color(0xffffffff);
 Color grey = const Color(0xff999999);

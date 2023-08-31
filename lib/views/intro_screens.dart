@@ -40,27 +40,27 @@ class _IntroScreensState extends State<IntroScreens> {
         currentIndex: currentIndex,
         pageController: _pageController,
         illustrationPath: ImageOf.slide1,
-        title: 'Welcome to defi_crypto',
+        title: 'Welcome to DefiCrypto',
         subtitle:
-            'Streamline Your Life with Seamless Digital Services Anytime, Anywhere',
+            'Unlock the World of Crypto Investment and Trading – Your Pathway to Financial Freedom',
       ),
       IntroScreenItem(
         itemIndex: 1,
         currentIndex: currentIndex,
         pageController: _pageController,
         illustrationPath: ImageOf.slide2,
-        title: ' Simplify Payments',
+        title: 'Your Crypto Journey Starts Here',
         subtitle:
-            'Effortlessly Recharge Airtime, Purchase Data Bundles, and Settle Utility Bills on Demand.',
+            'Navigate the Crypto Space with Confidence – Invest, Monitor, and Grow Your Portfolio Seamlessly.',
       ),
       IntroScreenItem(
         itemIndex: 2,
         currentIndex: currentIndex,
         pageController: _pageController,
         illustrationPath: ImageOf.slide3,
-        title: 'Empowering Convenience',
+        title: 'Empowering Financial Futures',
         subtitle:
-            ' Embrace the Future of Easy Digital Services – Your One-Stop Vending Solution in Nigeria.',
+            'Embrace the Power of Cryptocurrency for Investment Growth – Your Gateway to Digital Wealth.',
       ),
     ];
     return Scaffold(
