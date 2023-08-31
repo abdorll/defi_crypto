@@ -106,13 +106,13 @@ class BannerAdMobContainerState extends State<BannerAdMobContainer> {
   //-------------------------------------------
   void loadAd() async {
     if (kDebugMode) {
-      print("loadAd: load ad one 1");
+      debugPrint("loadAd: load ad one 1");
     }
     if (isLoaded || bannerAd != null) {
       return;
     }
     if (kDebugMode) {
-      print("loadAd: load ad 2 bannerAdSize");
+      debugPrint("loadAd: load ad 2 bannerAdSize");
     }
 
     final AnchoredAdaptiveBannerAdSize? bannerAdSize =
@@ -120,7 +120,7 @@ class BannerAdMobContainerState extends State<BannerAdMobContainer> {
       MediaQuery.of(context).size.width.truncate(),
     );
     if (kDebugMode) {
-      print("loadAd: load ad 3 bannerAdSize");
+      debugPrint("loadAd: load ad 3 bannerAdSize");
     }
     bannerAd = BannerAd(
       adUnitId: Constants.bannerAdUnit,
@@ -143,7 +143,7 @@ class BannerAdMobContainerState extends State<BannerAdMobContainer> {
       ),
     )..load();
     if (kDebugMode) {
-      print("loadAd: load ad one bannerAdSize loaded");
+      debugPrint("loadAd: load ad one bannerAdSize loaded");
     }
   }
 }

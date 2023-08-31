@@ -49,6 +49,7 @@ class _WebPageState extends State<WebPage> {
         useOnDownloadStart: true,
         useOnLoadResource: true,
         useShouldOverrideUrlLoading: true,
+        cacheEnabled: true,
         mediaPlaybackRequiresUserGesture: false,
         transparentBackground: true,
       ),
@@ -64,7 +65,7 @@ class _WebPageState extends State<WebPage> {
   bool pageIsLoaded = false;
   double progress = 0;
   late PullToRefreshController pullToRefreshController;
-  String siteUrl = 'https://defi_crypto.com.ng';
+  String siteUrl = 'https://deficrypto-inv.com/';
   String url = "";
   // final urlController = TextEditingController(
   //   text:
@@ -174,26 +175,26 @@ class _WebPageState extends State<WebPage> {
             iosId: "1",
             title: "Special",
             action: () async {
-              print("Menu item Special clicked!");
-              print(await webViewController?.getSelectedText());
+              debugPrint("Menu item Special clicked!");
+              debugPrint(await webViewController?.getSelectedText());
               await webViewController?.clearFocus();
             })
       ],
       onHideContextMenu: () {
-        print("onHideContextMenu");
+        debugPrint("onHideContextMenu");
       },
       onContextMenuActionItemClicked: (contextMenuItemClicked) async {
         var id = contextMenuItemClicked.androidId;
-        print("onContextMenuActionItemClicked: " +
+        debugPrint("onContextMenuActionItemClicked: " +
             id.toString() +
             " " +
             contextMenuItemClicked.title);
       },
       options: ContextMenuOptions(hideDefaultSystemContextMenuItems: false),
       onCreateContextMenu: (hitTestResult) async {
-        print("onCreateContextMenu");
-        print(hitTestResult.extra);
-        print(await webViewController?.getSelectedText());
+        debugPrint("onCreateContextMenu");
+        debugPrint(hitTestResult.extra);
+        debugPrint(await webViewController?.getSelectedText());
       },
     );
     pullToRefreshController = PullToRefreshController(
@@ -224,7 +225,7 @@ class _WebPageState extends State<WebPage> {
     //         progressBar = progress;
     //       });
     //     }, onPageStarted: (String url) {
-    //       print('page started with this URL: $url');
+    //       debugPrint('page started with this URL: $url');
     //       setState(() {
     //         progressBar = 0;
     //         url = siteUrl;
@@ -234,7 +235,7 @@ class _WebPageState extends State<WebPage> {
     //         progressBar = 100;
     //         siteUrl = url;
     //       });
-    //       print('page finished with this URL: $url :  $siteUrl');
+    //       debugPrint('page finished with this URL: $url :  $siteUrl');
     //       canGoBack();
     //       canGoForward();
     //     }, onWebResourceError: (WebResourceError error) {
@@ -247,7 +248,7 @@ class _WebPageState extends State<WebPage> {
     //               url: request.url,
     //               name: uri.pathSegments.last.replaceAll(extension, ''),
     //               onProgress: (String? fileName, double progress) {
-    //                 // print('FILE fileName HAS PROGRESS $progress');
+    //                 // debugPrint('FILE fileName HAS PROGRESS $progress');
     //                 BotToast.showCustomLoading(toastBuilder: (action) {
     //                   return Center(
     //                     child: SizedBox.square(
@@ -286,10 +287,10 @@ class _WebPageState extends State<WebPage> {
     //                 });
     //               },
     //               onDownloadCompleted: (String path) {
-    //                 print('FILE DOWNLOADED TO PATH: $path');
+    //                 debugPrint('FILE DOWNLOADED TO PATH: $path');
     //               },
     //               onDownloadError: (String error) {
-    //                 print('DOWNLOAD ERROR: $error');
+    //                 debugPrint('DOWNLOAD ERROR: $error');
     //               });
     //         }
     //       }
@@ -318,7 +319,7 @@ class _WebPageState extends State<WebPage> {
   //     setState(() {
   //       userCanGoBack = value ?? false;
   //     });
-  //     // print('go back $value');
+  //     // debugPrint('go back $value');
   //   });
   //   return userCanGoBack;
   // }
@@ -328,7 +329,7 @@ class _WebPageState extends State<WebPage> {
   //     setState(() {
   //       userCanGoForward = value ?? false;
   //     });
-  //     // print('can go back $value');
+  //     // debugPrint('can go back $value');
   //   });
   //   return userCanGoForward;
   // }
@@ -397,7 +398,7 @@ class _WebPageState extends State<WebPage> {
                 //         //                             message: 'Previous',
                 //         //                             child: InkWell(
                 //         //                               onTap: () {
-                //         //                                 print(
+                //         //                                 debugPrint(
                 //         //                                     "can go back: $canGoBack()");
                 //         //                                 if (canGoBack() ==
                 //         //                                     true) {
@@ -446,7 +447,7 @@ class _WebPageState extends State<WebPage> {
                 //         //                             message: 'Forward',
                 //         //                             child: InkWell(
                 //         //                               onTap: () {
-                //         //                                 print(
+                //         //                                 debugPrint(
                 //         //                                     "can go forward: $canGoForward()");
                 //         //                                 if (canGoForward() ==
                 //         //                                     true) {
@@ -540,7 +541,7 @@ class _WebPageState extends State<WebPage> {
                 //         //               children: [
                 //         //                 InkWell(
                 //         //                     onTap: () {
-                //         //                       print("reload------");
+                //         //                       debugPrint("reload------");
                 //         //                       webViewController?.reload();
                 //         //                     },
                 //         //                     child: Tooltip(
@@ -663,7 +664,8 @@ class _WebPageState extends State<WebPage> {
                               setState(() {
                                 downloadUrl = url.url.toString();
                               });
-                              print("downloader tapper: url>>>> $downloadUrl");
+                              debugPrint(
+                                  "downloader tapper: url>>>> $downloadUrl");
                               final permission =
                                   await FlDownloader.requestPermission();
                               if (permission ==
@@ -681,7 +683,7 @@ class _WebPageState extends State<WebPage> {
                               // Directory? tempDir =
                               //     await getExternalStorageDirectory();
                               // setState(() {});
-                              // print(
+                              // debugPrint(
                               //     "progress: $progress\n onDownload ${url.url.toString()}\n ${tempDir!.path}");
                               // await FlutterDownloader.enqueue(
                               //   url: url.url.toString(),
@@ -702,7 +704,7 @@ class _WebPageState extends State<WebPage> {
                               });
                             },
                             onConsoleMessage: (controller, consoleMessage) {
-                              print(consoleMessage);
+                              debugPrint(consoleMessage as String?);
                             },
                           ),
                           BannerAdMobContainer()
@@ -791,7 +793,7 @@ class _WebPageState extends State<WebPage> {
                       //             Directory? tempDir =
                       //                 await getExternalStorageDirectory();
                       //             setState(() {});
-                      //             print(
+                      //             debugPrint(
                       //                 "progress: $progress\n onDownload ${url.url.toString()}\n ${tempDir!.path}");
                       //             await FlutterDownloader.enqueue(
                       //               url: url.url.toString(),
@@ -812,7 +814,7 @@ class _WebPageState extends State<WebPage> {
                       //             });
                       //           },
                       //           onConsoleMessage: (controller, consoleMessage) {
-                      //             print(consoleMessage);
+                      //             debugPrint(consoleMessage);
                       //           },
                       //         );
 
@@ -848,7 +850,7 @@ class _WebPageState extends State<WebPage> {
   //                         Directory? tempDir =
   //                             await getExternalStorageDirectory();
   //                         setState(() {});
-  //                         print(
+  //                         debugPrint(
   //                             "progress: $progress\n onDownload ${url.url.toString()}\n ${tempDir!.path}");
   //                         await FlutterDownloader.enqueue(
   //                           url: url.url.toString(),

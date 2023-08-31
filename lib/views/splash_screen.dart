@@ -20,7 +20,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   void nextPage() async {
     var openBox = await Hive.openBox(Constants.userBox);
-    print('USER RECOGNIZED STATUS IS --------- ${Constants.recognizedUser}');
+    //debugPrint('USER RECOGNIZED STATUS IS --------- ${Constants.recognizedUser}');
     bool recognized = openBox.get(Constants.recognizedUser) ?? false;
     Future.delayed(Duration(seconds: 3), () {
       recognized == false
@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           ImageOf.splashScreenImage,
-          height: 150,
+          height: 80,
         ),
       ),
     );
