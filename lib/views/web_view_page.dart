@@ -311,7 +311,7 @@ class _WebPageState extends State<WebPage> {
                               print(consoleMessage);
                             },
                           ),
-                          BannerAdMobContainer()
+                          // BannerAdMobContainer()
                         ],
                       ),
                       progress < 1.0 ? LoadingPage() : Container(),
